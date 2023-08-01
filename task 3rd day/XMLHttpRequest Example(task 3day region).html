@@ -1,0 +1,47 @@
+
+<!-- saved from url=(0069)file:///E:/b49%20july2023/b49Palani/day%2017/task%20folder/task3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <title>XMLHttpRequest Example</title>
+    </head>
+    <body>
+        <script>
+            var xhr = new XMLHttpRequest ();
+            
+//Define HTTP method and URL
+var method = "GET";
+// var url = "https://api.publicapis.org/entries";
+var url = "https://restcountries.com/v3.1/all";
+
+
+xhr.open(method, url);
+
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    //Request was successful
+    console.log(xhr.responseText);
+    var details = JSON.parse(xhr.responseText);
+    
+    console.log(details);
+    //   console.log(details.entries);
+    for (var i = 0; i <details.length; i++) {
+      console.log(details[i].region);
+     
+          
+    }
+      
+    
+     } else {
+
+     
+    //Request failed
+    console.log("Request failed", xhr.status);
+     }
+    }
+  
+xhr.send();
+
+        </script>
+    
+ 
+
+    </body></html>
